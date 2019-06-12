@@ -1,55 +1,37 @@
 /*
- * steppermotor.c
+ * buzzer.c
  *
- * Created: 12-06-2019 10:53:38
+ * Created: 11-06-2019 22:37:36
  * Author : Mohit
  */ 
 
 
-#define F_CPU 16000000UL
 #include <avr/io.h>
+#define F_CPU 1000000UL
 #include<util/delay.h>
-
+#include<stdlib.h>
+#define E5
+#define RS 7
+void send_a_command(unsigned char command);
+void send_a_character(unsigned char character);
+void send_a_string(char*string_of_character);
 
 int main(void)
 {
-   DDRA=0X0F;
-   int period=2;
-   while(1)
-   
-  {
-	  PORTA=0X09;
-	  _delay_ms(period);
-	  PORTA=0X08;
-	  _delay_ms(period);
-	  PORTA=0X0C;
-	  _delay_ms(period);
-	  PORTA= 0X06;
-	  _delay_ms(period);
-	  PORTA=0X04;
-	  _delay_ms(period);
-	  PORTA=0X02;
-	  _delay_ms(period);
-	  PORTA=0X03;
-	  _delay_ms(period);
-	  PORTA=0X01;
-	  _delay_ms(period);
-  }
-  PORTA=0X09;
-  _delay_ms(period);
-  _delay_ms(1000);
-  {
-	  PORTA=0X01;
-	  _delay_ms(period);
-	  PORTA=0X03;
-	  _delay_ms(period);
-	  PORTA=0X04;
-	  _delay_ms(period);
-	  PORTA=0X06;
-	  _delay_ms(period);
-	  PORTA=0X0C;
-	  _delay_ms(period);
-	  PORTA=0X08;
-	  _delay_ms(period);
-	  }     
-  }
+	DDRC=0XFF;
+	DDRA=0X00;
+	DDRD=0XFF;
+	_delay_ms(50);
+	ADMUX|=(1<<REFS0)|(1<<REFS1);
+	ADCSRA|=(1<<ADEN)|(1<<ADATE)|(1<<ADPS0)|(1<<ADPS1)|(1<<ADPS2);
+	int COUNTA=0;
+	char SHOWA[3];
+	send_a_command(0x01);
+	_delay_ms(50);
+	send_a_command(0x38);
+	
+	while (1)
+	{
+	}
+}
+
