@@ -1,31 +1,55 @@
 /*
- * servometer.c
+ * steppermotor.c
  *
- * Created: 12-06-2019 10:09:09
+ * Created: 12-06-2019 10:53:38
  * Author : Mohit
  */ 
 
-#include <avr/io.h>
+
 #define F_CPU 16000000UL
-#include <util/delay.h>
+#include <avr/io.h>
+#include<util/delay.h>
 
 
 int main(void)
 {
-    TCCR1A|=(1<<COM1A1)|(1<<COM1B1)|(1<<WGM11);
-	TCCR1B|=(1<<WGM13)|(1<<WGM12)|(1<<CS11)|(1<<CS10);
-	ICR1=4999;
-	DDRD|=(1<<PD5);
-	while(1)
-	{
-		OCR1A=97;
-		_delay_ms(500);
-		
-		OCR1A=280;
-		_delay_ms(500);
-		
-		OCR1A=535;
-		_delay_ms(500);
-		
-	}
-}
+   DDRA=0X0F;
+   int period=2;
+   while(1)
+   
+  {
+	  PORTA=0X09;
+	  _delay_ms(period);
+	  PORTA=0X08;
+	  _delay_ms(period);
+	  PORTA=0X0C;
+	  _delay_ms(period);
+	  PORTA= 0X06;
+	  _delay_ms(period);
+	  PORTA=0X04;
+	  _delay_ms(period);
+	  PORTA=0X02;
+	  _delay_ms(period);
+	  PORTA=0X03;
+	  _delay_ms(period);
+	  PORTA=0X01;
+	  _delay_ms(period);
+  }
+  PORTA=0X09;
+  _delay_ms(period);
+  _delay_ms(1000);
+  {
+	  PORTA=0X01;
+	  _delay_ms(period);
+	  PORTA=0X03;
+	  _delay_ms(period);
+	  PORTA=0X04;
+	  _delay_ms(period);
+	  PORTA=0X06;
+	  _delay_ms(period);
+	  PORTA=0X0C;
+	  _delay_ms(period);
+	  PORTA=0X08;
+	  _delay_ms(period);
+	  }     
+  }
