@@ -1,27 +1,18 @@
 /*
- * GccApplication1.c
+ * pwmmotor.c
  *
- * Created: 10-06-2019 13:38:54
+ * Created: 11-06-2019 11:52:17
  * Author : Mohit
  */ 
-C#define F_CPU 8000000UL
-#include"avr/io.h"
-#include <util/delay.h>
-void PWM_init()
+
+#include <avr/io.h>
+
+
+int main(void)
 {
-	TCCR0=(1<<WGM00)|(1<WGM01)|(1<<COM01)|(1<<CS00);
-	DDRB|=(1<<PB3);
+    /* Replace with your application code */
+    while (1) 
+    {
+    }
 }
-int main()
-{
-	unsigned char duty;
-	PWM_init();
-	while(1)
-	{
-	for(duty=0;duty<255;duty++)	
-	{
-  OCR0=duty;
-  _delay_ms(8);
-	}
-	}
-}
+
