@@ -1,25 +1,24 @@
 /*
- * potentiometer.c
+ * DCMOTOR.c
  *
- * Created: 10-06-2019 14:54:33
+ * Created: 11-06-2019 10:31:12
  * Author : Mohit
  */ 
 
 #include<avr/io.h>
-#include F_CPU 1000000UL
+#define F_CPU 16000000
 #include<util/delay.h>
-#include<stdilb.h>
+#include<stdlib.h>
 
-#define enable 5
-#define registerselection 7
-
-void send_a_command(unsigned char command);
-void send_a_character(unsigned char character);
-void send_a_string(char*string_of_character);
 
 int main(void)
 {
-	DDRC=0XFF;
-	DDRA=0X00;
-	DDRD=
+	DDRD=0XFF;
+	while(1)
+	{
+		PORTB=0X01;
+		_delay_ms(800);
+		PORTB=0X02;
+		_delay_ms(800);
+	}
 }
