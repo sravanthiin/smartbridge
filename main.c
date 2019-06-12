@@ -1,7 +1,7 @@
 /*
- * lcd.c
+ * lcd string.c
  *
- * Created: 12-06-2019 21:46:05
+ * Created: 12-06-2019 22:00:09
  * Author : Mohit
  */ 
 
