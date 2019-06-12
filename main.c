@@ -1,29 +1,18 @@
 /*
- * timer.c
+ * relay.c
  *
- * Created: 10-06-2019 12:13:04
- * Author : mohit
+ * Created: 12-06-2019 21:18:06
+ * Author : Mohit
  */ 
 
 #include <avr/io.h>
-#define LED PB0
-int main()
+
+
+int main(void)
 {
-	int timeroverflowcount =0;
-	DDRB =0XFF;
-	TCNT0=0X00;
-	TCCR0=(1<<CS00)|(1<<CS02);
-	while(1)
-	{
-		while((TIFR&0X01)==0);
-		TCNT0=0X00;
-		TIFR=0X01;
-		timeroverflowcount++;
-		if(timeroverflowcount >=5)
-		{
-			PORTB^=(0X11<<LED);
-			timeroverflowcount = 0;
-		}
-	}
-	
+    /* Replace with your application code */
+    while (1) 
+    {
+    }
 }
+
